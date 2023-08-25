@@ -44,5 +44,8 @@ print(xb)
 # from the vocab size in our scenario it is 1/65 = 1/vocab_size you know that the init
 # may have too much entropy
 
-# Stopped at 28:54 he is about to go into the Bigram Model's generate function
+# generate() of Bigram Language model
+# generate(self, idx, new_tokens)
+# Stopped at training the bigram model 37:37. Moving to Andrew Ng's Deep learning specialization to save time
+# Andrej's courses require too much background knowledge.
 ```
