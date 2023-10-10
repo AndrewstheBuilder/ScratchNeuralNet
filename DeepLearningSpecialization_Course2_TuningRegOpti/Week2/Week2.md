@@ -137,10 +137,10 @@
 
 ### The Problem of Local Optima
 - Local optima are not likely to happen its more likely to be at the saddle point checkout graph below. Local optima are to the left.
-  - ![Alt text](image-7.png)
+  ![Alt text](image-7.png)
 #### Problem of Plateaus
 - Plateaus can really be a problem.
-- ![Alt text](image-8.png)
+![Alt text](image-8.png)
 #### Takeaways
 - Unlikely to get stuck in a bad local optima. If:
   - You are training a reasonably large neural network and the cost function j is defined over a relatively high dimensional space.
