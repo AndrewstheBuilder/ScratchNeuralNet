@@ -147,8 +147,18 @@
   - It seems like having a lot of parameters helps avoid local optima
 - Neural Networks are solving optimization problems over such high dimensional spaces no one has a good intuition of how these high dimensional spaces look like.
 
+# Project Learnings
 ![Alt text](image-9.png)
 - Stochastic Gradient Descent only uses one training example. Batch Gradient Descent uses the whole training set. Mini-Batch Gradient Descent is in between these two.
 
 ![Alt text](image-10.png)
 - You see how mini-batch is smoother than stochastic gradient descent. Batch gradient descent was shown as being completely smooth. So mini-batch is like the happy medium
+
+#### Momentum
+- Copied from project desc
+- Because mini-batch gradient descent makes a parameter update from seeing just a subset of examples, the direction of the update has some variance, and so the path taken by gradient descent will "oscillate" towards convergence.
+- Using momentum can reduce these oscillations
+- Momentum takes into account past gradients to smooth out the update. The 'direction' that the previous gradients took is stored in a variable v. Formally, this v will be storing the exponentially weighted average of the previous steps.
+- You can also think of v as the "velocity" of a ball rolling downhill, building up speed (and momentum) according to the direction of the gradient/slope of the hill.
+  - I do not really get this analogy. How is it building up momentum? Are we not suppose to typically have smaller oscillations and smaller step sizes as we approach convergence.
+- beta is that momentum!
