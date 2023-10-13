@@ -146,3 +146,9 @@
   - You are training a reasonably large neural network and the cost function j is defined over a relatively high dimensional space.
   - It seems like having a lot of parameters helps avoid local optima
 - Neural Networks are solving optimization problems over such high dimensional spaces no one has a good intuition of how these high dimensional spaces look like.
+
+![Alt text](image-9.png)
+- Stochastic Gradient Descent only uses one training example. Batch Gradient Descent uses the whole training set. Mini-Batch Gradient Descent is in between these two.
+
+![Alt text](image-10.png)
+- You see how mini-batch is smoother than stochastic gradient descent. Batch gradient descent was shown as being completely smooth. So mini-batch is like the happy medium
