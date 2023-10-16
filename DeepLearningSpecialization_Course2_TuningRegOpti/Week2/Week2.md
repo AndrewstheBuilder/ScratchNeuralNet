@@ -103,12 +103,13 @@
     -  this is not intuitive
     -  One impact of this if you tune the hyperparameter $\beta$ you might need to retune the learning rate as well.
        -  So the (1-$\beta$) might be better.
-### RMSprop
+### RMS Prop
 - This is another way to accomplish the same thing as gradient descent with momentum.
 - In the horizontal direction we want learning to go fast. In the vertical direction we want it to be slow.
 - ![Alt text](image-5.png)
   - The updates in the horizontal direction are divided by a much smaller number
   - The updates in the vertical direction are divided by a much larger number
+  - W is in charge of the horizontal direction changes. B is in charge of the vertical direction changes.
 - In practice dw is a very high dimensional parameter vector and db is a very high dimensional parameter vector.
 - Similar to the gradient descent with momentum it dampens out the oscillations.
 
