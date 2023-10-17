@@ -65,6 +65,7 @@
         - X$_1$: 0...1
         - X$_2$: -1...1
         - X$_3$: 1...2
+        - See now input features are on a similar scale.
 #### Implementing Batch Norm
 - Rewatch this! Its a bunch of math
 
