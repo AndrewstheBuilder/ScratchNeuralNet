@@ -43,13 +43,18 @@
 - Batch norm makes your hyperparameter search problem that much easier, makes your neural network more robust.
   - The choice of hyperparameters that work well is in a much bigger range.
 #### Normalizing inputs to speed up learning
+- "Unfortunately, terms are used differently in different fields, by different people within the same field, etc., so I'm not sure how well this can be answered for you here. You should make sure you know the definition that your instructor / the textbook is using for "normalized". However, here are some common definitions:" Reference: [stats-exchange](https://stats.stackexchange.com/questions/70553/what-does-normalization-mean-and-how-to-verify-that-a-sample-or-a-distribution)
 - Normalizing the input features can speed up learning.
   - X = X / $\sigma$
-    - $\sigma$ is the variance
+    - $\sigma$ is the ~~variance~~.
+      - Nope it is the standard deviation.
     - How do I build the intuitions for how these things are working?
     - I vaguely remember this but I do not remember exactly how it was working.
   - Makes the search space more rounded as opposed to being elongated. Remember from earlier?
   - **Variance** - measures how far a set of numbers are spread out from their average value.
+    - Calculating the **mean** for a dataset might not give an exact answer if the dataset is always changing for example calculating the average amount of time american spends on t.v. People are dying and being born everyday so this value is always changing.
+    - **Variance** is $\sigma^2$
+    - **Standard Deviation** is $\sigma$
   - **Normalization** - rescales a dataset so that each value falls between 0 and 1. (got this searching for stat def of normalization)
     - From coursera Week 1 of this course
     - Normalization steps:
@@ -66,7 +71,46 @@
         - X$_2$: -1...1
         - X$_3$: 1...2
         - See now input features are on a similar scale.
+        - Normalizing makes the training go faster.
+- **Batch Norm** normalizes the dataset.
 #### Implementing Batch Norm
-- Rewatch this! Its a bunch of math
+- Z tilda is computed because we do not want the hidden units to have the same distribution as unit variance and zero mean.
+  - We introduce hyperparameters $\gamma$ and $\beta$
+  - Without this adjustment it is basically calculating the identity function
+    - An **Identity Function** is a function that always returns the value used as its argument, unchanged.
+- Batch Norm should standardize mean and variance but $\gamma$ and $\beta$ will make sure it does not stay at the identity function range.
+### Fitting Batch norm into a Neural Network
+#### Adding Batch Norm to a network
+- Each neural computes Z then has a afterwards which is the activation.
+- Implementing batch norm is like one line of code in a deep neural network.
+  - Not the apis right but the raw implementation?
+#### Working with mini-batches
+- We can get rid of the bias in mini batches because when we subtract out the mean it gets cancelled out.
+  - How???
+  - Oh batch norm zeros out the means so the bias does not do anything for us.
+#### Implementing (mini-batch) Gradient Descent
+- In each hidden layer use Batch Norm(BN) to replace Z$^l$ with $\stackrel{\sim}{Z}$
+- We compute gradients for $\beta$ and $\gamma$
 
-#### Fitting Batch norm into a Neural Network
+### Why does Batch Norm work?
+- You have seen how normalizing input range of features to take on a similar range of values can speed up training. Batch Norm is doing the same thing for your hidden units.
+  - This is just a partial picture. There are a couple of farther intuitions
+#### Learning on shifting input distribution
+- "Covariate shift" - the idea of the inputs changing. For example going from a input distribution of black cats to different colored cats. Your ML model may not be expected to generalize really well to the new input set.
+#### Why this is a problem with neural networks?
+- Batch norm reduces the amount the distribution of the hidden units changes
+  - The mean and variance will stay the same as determined by $\beta$ and $\gamma$. It does not have to be mean 0 and variance 1.
+- This weakens the coupling between the later layers and earlier layers.
+#### Batch Norm as regularization
+- Batch norm has a slight regularization effect
+- each mini-batch is scaled by the mean/variance computed on just that mini-batch.
+- This adds some noise to the values z$^{[l]}$ withint that minibatch. So similar to dropout, its teaching the unit not to rely too much on the previous layer. Each hidden layer's activations has a bit of noise.
+- By using a bigger mini-batch you reduce this regularization effect
+  - How???
+- This was not the intended effect of batch norm.
+- Batch norm uses minibatches so at test time you may need to do something different.
+  - Why do we need to worry about doing something different at test time?
+### Batch Norm at Test Time
+- We estimate mean and variance using exponentially weighted average(across mini-batch).
+- In practice this is pretty robust of how the mean and variance actually is.
+- Refresh yourself on why this needs to be done!!
