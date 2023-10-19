@@ -111,6 +111,46 @@
 - Batch norm uses minibatches so at test time you may need to do something different.
   - Why do we need to worry about doing something different at test time?
 ### Batch Norm at Test Time
+- Batch norm handles data one mini batch at a time. It computes mean and variance across a single mini batch.
+  - So at test time you might not have mini batches. So you may need to do something different to make sure your predictions make sense.
 - We estimate mean and variance using exponentially weighted average(across mini-batch).
 - In practice this is pretty robust of how the mean and variance actually is.
 - Refresh yourself on why this needs to be done!!
+- At test time you may not have the whole data set to compute mean and variance.
+- $\mu, \sigma^2$ using exponentially weighted average (across mini batches)
+  - You are keeping a running average as you come across these values.
+  - Exponentially weighted average is sometimes called running average
+
+## Multi-Class Classification
+### Softmax Regression
+- Imagine you have to recognize multiple classes instead of just binary classification. For exampel recognizing cats, dogs, and baby chicks
+  - There would be 4 classes here because there is also an other if it is none of the above three classes.
+#### Softmax layer
+- This is what is used for the multi-class classification.
+- Its the last layer.
+- Here is how it works so we get Z$^l$ at the final layer (l)
+  - Z$^l$ = [5,2,-1,3]
+  - we take these to the power of e
+    - t = $[e^5, e^2, e^{-1}, e^3]$
+    - t = [148.4, 7.4, 0.4, 20.1]
+    - ${\sum}_{j=0}^{5}$ $t_j$ = 176.3
+    - a$^{[L]}$ = $\dfrac{t}{176.3}$
+- I want to build a multi-classifier building of the Simple Neural Network I did but this time do it on something semi useful. I want to keep it simple so I will initially use linear activations.
+  - 1. Find a cool dataset to model.
+  - "But AI and data science have great value even for a pizza maker. He can use a linear classifier to predict which pizza might be popular at which time"
+### Training a Softmax Classifier
+#### Understanding softmax
+- contrasting with a hard max [1, 0, 0, 0]. Where you just get a single 1 and the rest are 0s.
+- A softmax has probabilities [0.842, 0.042, 0.002, 0.114]
+- Softmax regression generalizes logistic regression to C classes.
+  - If C = 2, softmax reduces to logistic regression.
+  - For example: a$^[L]$ = [0.842, 0.158]. You will choose the first element
+#### Loss Function
+- we end up with a -log(correct_class) for the loss function. So we want to make the value of correct_class as high as possible to get a low loss.
+- L($\stackrel{-}{y}$, y) = - $\sum_{j=1}^4 y_jlog\stackrel{-}{y}^{j}$
+  - Make L() small
+- J($W^{[l]}, b^{[l]}, ....$) = $\dfrac{1}{m}\sum_{i=1} ^ m L(\stackrel{-}{y}$, y)
+
+#### Gradient Descent with Softmax
+- Backprop: dz$^{[L]}$ = $\hat{y}$ - y
+- $\hat{y}$ is the predicted probabilities by softmax.
