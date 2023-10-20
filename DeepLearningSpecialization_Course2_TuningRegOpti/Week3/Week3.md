@@ -154,3 +154,17 @@
 #### Gradient Descent with Softmax
 - Backprop: dz$^{[L]}$ = $\hat{y}$ - y
 - $\hat{y}$ is the predicted probabilities by softmax.
+
+## Introduction to Programming Frameworks
+### Deep Learning Frameworks
+  - Its more practical and efficient to use a deep learning framework to go about the process of building an AI.
+  - Choosing deep learning frameworks
+    - Ease of programming
+    - running speed
+    - truly open (open source with good governance)
+      - Without governance companies may gradually chose to close it off in the future.
+#### TensorFlow
+- Tensorflow is dead apparently.
+#### Motivating Problem
+- Some cost function we want to minimize.
+- Some complicated cost function depending on all of the parameters of our neural network. We need to use this deep learning framework to solve it.
