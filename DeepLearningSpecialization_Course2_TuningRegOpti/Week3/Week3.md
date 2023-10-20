@@ -168,3 +168,9 @@
 #### Motivating Problem
 - Some cost function we want to minimize.
 - Some complicated cost function depending on all of the parameters of our neural network. We need to use this deep learning framework to solve it.
+
+#### Quiz for Week 3
+1. With a relatively small set of hyperparameters, it is OK to use a grid search. **True**
+3. During hyperparameter search, whether you babysit one model(panda approach) or train a lot of models in parallel(caviar approach) is largely determined:
+   - **By the amount of computational power you have to access to.**
+8. $\beta^{[L]}$ and $\gamma^{[L]}$ are hyperparameters that must be learned. They do not get tuned like $\alpha$ - the learning rate. They can be learned with gradient descent, gradient descent with momentum, RMS prop, and Adam, like all the other parameters.
