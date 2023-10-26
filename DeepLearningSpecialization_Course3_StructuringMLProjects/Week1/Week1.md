@@ -145,3 +145,14 @@
   - NN architecture/hyperparameters search
 - These concepts are easy to learn but hard to master.
 
+### Quiz for Week 1 Machine Learning Flight Simulator
+- The analogy to a flight simulator is that these are used to train pilots and they experience situations that allow them to improve much faster because they might not have encountered these problems in real life flying
+- "Instead of spending years working on a machine learning project before you get to experience certain scenarios, you'll get to experience them right here."
+- This is the first time this "airplane simulator" for machine learning strategy has been made widely available.
+  - Maybe I can learn much faster than machine learning researchers do from work experience.
+#### Questions from the Quiz'
+1. Having three evaluation metrics makes it harder to choose between two different algorithms and will slow down the speed with which your team can iterate?
+   - **True**
+5. Can I add a new distribution of data to the training set?
+   - yes. Adding data to the training set will change the training set distribution. However it is not a problem to have a different distribution between training and dev set. In constrast, it is **problematic** to have different test and dev set distributions
+
