@@ -88,3 +88,113 @@
   - Training dev error: 6%
   - Dev Error: 6%
 ### Addressing Data Mismatch
+- If your training set comes from a different distribution then your dev and test set.
+  - And error analysis shows you that you have a data mismatch
+    - There are not systematic solutions to this but there are some things that you can try.
+  - Carry out manual error analysis to try to understand the differences between the training and dev/test set
+    - **To avoid overfitting to the test set you should only look at the dev set**
+    - Make training data more similar; or collect more data similar to dev/test sets
+      - this is not a systematic approach
+#### Artificial data synthesis
+- You can do this by combining two pieces of data for example in speech recognition
+  - "some quote being spoken" + car noise = synthesized in-car audio
+  - if you 10,000 hours of the quote and 1 hour of car noise. You can replicate the car noise 10k times. But its possible to overfit to the 1 hour of car noise
+  - How would you solve this? Collect 10k hours of car noise.
+  - Another example: Car recognition
+    - Maybe you can get cars from a video game but probably the video game only has 20 unique designs of cars.
+### Learning from Multiple Tasks
+### Transfer Learning
+- How to learn from multiple sources of data at the same time.
+- One of the most powerful ideas in neural network training is that you can take the knowledge that the neural network has learned in one task and apply that to another task = transfer of learning.
+#### Transfer Learning Example
+- Lets say you have trained a neural network for image recognition.
+  - Say you want to radiology diagnosis. You can delete the last layer and swap it in for a new layer and the last weights leading to the last layer also.
+    - Retrain the neural network on the radiology dataset. You might just want to retrain the last layer
+    - The initial model from image recognition is pretraining and retraining it on the radiology dataset can be considered fine-tuning.
+    - How effective is this in practice?
+- Another example
+  - Training a speech recognition system
+  - Now you want to build a wakeword/trigger word detection
+    - You can do the same as above. Taking out the last layer and the weights leading to the last layer
+- Is it deleting the last layer + weights leading to the last layer or last layer + last layer's weights
+- When is transfer of learning possible?
+  - The pretraining is done on a huge dataset
+  - The fine tuning can be on a relatively small data set.
+  - Transfer of learning should be used when transfering from a problem with a lot of data to a problem with little data.
+#### When transfer of learning makes sense
+- Task A and B have the same input X.
+- You have a lot more data for Task A than Task B.
+- Low level features from A could be helpful for learning B.
+#### Summarize
+- There is also another technique to learn from multiple tasks called Multi-Task Learning. That is learning the tasks simultaneously and not one before the other.
+### Multi-Task Learning
+#### Example: Simplified autonomous driving example
+- You want to predict 4 things. Is there a pedestrian, a car, a stop sign, and a traffic light.
+#### Neural Network Architecture
+- The final layer is 4, m. m being the number of training examples
+- Unlike softmax regression:
+  - One image can have multiple labels
+- Multi-task learning is what this is.
+  - Some images can have only some of the labels and this can still work.
+    - In the loss function, sum only over values of j with 0/1 label.
+#### When multi-task learning makes sense
+- Training on a set of tasks that could benefit from having shared lower-level features.
+- Usually: Amount of data you have for each task is quite similar.
+- Can train a big enough neural network to do well on all tasks
+- Transfer of learning is used much more today because of data amount constraints. Multi-task learning is used for object detection with cars(computer vision).
+- In practice, Andrew Ng has seen much more transfer of learning models.
+
+### End to End Deep learning
+#### What is end-to-end deep learning?
+- Taking all of the stages of building a neural network and convert it to one large model
+#### Speech recognition example
+- previous way
+  - audio -> features -> (ML) -> phonemes -> words -> transcript
+- New Way
+  - audio ---> transcript
+- You need a large dataset for the end to end method to really shining
+#### Face Recognition
+- Baidu. He mentions this company a lot. I think its a chinese company.
+- First way to do this is to just look at the image that the camera is capturing.
+  - THis is not the best approach. Because the person can approach the camera at multiple angles
+- Best way
+  1. train a network to recognize a persons face
+  2. then zoom into that person's face this is then fed into the neural network.
+- In the best way, the neural network uses two algorithms to solve two simplified tasks.
+- The best way works better than the first way because there is a lot of data for the 2 subtasks.
+- There is not a lot of data for the first ways 1 task. X would the image taken by the camera in the particular situation of the camera and y is the identity of the person.
+- In practice, breaking this down into two sub problems actually works better like shown above.
+
+#### More Examples
+- Machine translation:
+  - English -> text analysis -> ... -> French
+  - English ----> French
+    - End to end works well you do have a lot of data for pairs of english, french sentences.
+- Estimating Child's age
+  - Estimate the bone length average for each age.
+  - Use the picture of the childs hand x ray to estimate the age.
+
+### Systematic Approach for when to use and when to not use end to end deep learning
+#### Whether to use end-to-end deep learning
+- Pros:
+  - Let the data speak
+    - If you train a big enough neural network it will learn the mapping function for x -> y
+      - Sounds like the ecological approach.
+    - Maybe this method will reflect whatever other statistics are in the data rather than reflecting human preconceptions.
+      - Example: earlier speech recognition machines had a concept of "phonemes". "Phonemes" are a creation of linguists. And it seems like a reasonable way to represent language. But its not obvious that this is what the machine should try and learn from.
+  - Less hand-desiging of components needs
+- Cons:
+  - May need large amount of data
+    - Maybe having a more efficient approach to model building can solve this problem
+      - We are born with a prebuilt network. We have advantages in efficiency compared to machines when it comes to learning
+  - Excludes potentially useful hand-designed components
+    - The equivalent of me watching BJJ instructionals to learn the most efficient movements.
+#### Applying end-to-end deep learning
+- Key question: Do you have sufficient data to learn a function of the complexity needed to map x to y?
+  - Intuitively maybe the mapping function is very complex to learn
+  - Example of teaching a car how to drive(not a end to end approach):
+    - You can use image from camera, radar, lidar -> detect cars, pedestrians -> calculate a route to go -> steering
+      - Figuring out the route is done using a piece of software called motion planning
+        - (If you take a class on robotics you can learn about that.)
+    - another software can be used to evaluate exactly how much to turn the steering wheel etc.
+  - Pure end to end deep learning approach does not look promising for the problem of self-driving cars.
