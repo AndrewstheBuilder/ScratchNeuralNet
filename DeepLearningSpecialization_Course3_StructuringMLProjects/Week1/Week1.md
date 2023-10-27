@@ -153,6 +153,15 @@
 #### Questions from the Quiz'
 1. Having three evaluation metrics makes it harder to choose between two different algorithms and will slow down the speed with which your team can iterate?
    - **True**
+   - Why is this true? I need to rethink my whole life.
 5. Can I add a new distribution of data to the training set?
    - yes. Adding data to the training set will change the training set distribution. However it is not a problem to have a different distribution between training and dev set. In constrast, it is **problematic** to have different test and dev set distributions
+
+13. You have more false negatives. So what should you do?
+    - Pick false negative rate as the new metric and use this metric to drive all further development
+      - Incorrect answer because this choice points to the incorrect target.
+    - I think the correct answer is: "Brainstorm with your team to refine the optimizing metric to include false negatives as tehy further develop the model"
+14. You get 1000 images of some new data. I think the original dataset is like 1 million images.
+    - I said we should add this in dev, test, and train sets but the response was that the number of new images is too small to make a difference
+      - I guess we should augment the data to increase the images of the new bird
 
