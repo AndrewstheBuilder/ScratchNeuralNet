@@ -198,3 +198,11 @@
         - (If you take a class on robotics you can learn about that.)
     - another software can be used to evaluate exactly how much to turn the steering wheel etc.
   - Pure end to end deep learning approach does not look promising for the problem of self-driving cars.
+
+### Quiz Insights
+1. Applied ML is highly iterative. Having a basic model and doing error analysis can point you in the most promising direction with a lot of certainties.
+2. Softmax is used for multiclass classification where you trying to predict which **one** of the multiple classes that it could be. Softmax will assign percentages to all of the classes and the highest percentage will win out.
+  - For a multi-label classification problem where you are trying to predict multiple labels. You should use a sigmoid for each neuron because each neuron will independently predict each label.
+3. If you are going to manually check all the images in the training set to improve the ML performance it is probably not a good idea because there is too much data. Instead evaluate what you got wrong in the dev set or if there is a subset that is not too large.
+5. It is important that the dev and test set have the closest possible distribution to "real" data. It is also important for the training set to contain enough "real" data to avoid having a data-mismatch problem.
+9. Say you have a dataset where it has a 4.1% due to some mismatch. If you eliminate that mismatch you can improve the 4.1% error but its not guranteed to eliminate the 4.1%. That is just the ceiling on how much it can be improved.
