@@ -142,4 +142,13 @@
   - Try and figure this out
 
 #### Why Convolutions?
-- Finally I can understand why I am learning all this crap/
+- Finally I can understand why I am learning all this crap.
+- 32 x 32 x 3 image -> f=5(means 5x5 filter) with 6 filters -> output: 28 x 28 x 6
+- 32 * 32 * 3 = 3072 and 28 * 28 * 6 = 4704 -> 3072 * 4704 = ... a lot of parameters
+- CNNs have realtively few parameters because of **parameter sharing**
+  - A feature detector(such as a vertical edge detector) that's useful in one part of the image is probably useful in another part of the image.
+- Another way is **sparsity of connections**: in each layer each output value only depends on a small number of inputs
+  - For example 0s in the inputs do not contribute to the output
+- Translation invariance - if the picture translates or shifts a few pixels it can still classify it correctly
+#### Putting it together
+- ![Alt text](image-5.png)
