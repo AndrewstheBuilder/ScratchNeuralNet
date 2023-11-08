@@ -152,3 +152,12 @@
 - Translation invariance - if the picture translates or shifts a few pixels it can still classify it correctly
 #### Putting it together
 - ![Alt text](image-5.png)
+
+#### Quiz
+- Quiz question hint: If you have 10 filters that are 3 x 3 x 3 in one layer of a neural network, how many parameters does that layer have?
+  - 3 * 3 * 3 = 27 parameters + 1 for bias = 28 parameters
+  - 28 parameters * 10 = 280 parameters in total
+- Which of the following are hyperparameters of the pooling layer?
+  - I guess **number of filters** is determined by stride which is one of the hyperparameters of the pooling layer.
+- So apparently the architecture of a CNN makes it possible to be trained with less training sets.
+  - **Answer**: Weight sharing significantly reduces the number of parameters in a neural network, and sparsity of connections allows us to use a smaller number of inputs thus reducing even further the number of parameters
