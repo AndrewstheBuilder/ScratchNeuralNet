@@ -161,3 +161,6 @@
   - I guess **number of filters** is determined by stride which is one of the hyperparameters of the pooling layer.
 - So apparently the architecture of a CNN makes it possible to be trained with less training sets.
   - **Answer**: Weight sharing significantly reduces the number of parameters in a neural network, and sparsity of connections allows us to use a smaller number of inputs thus reducing even further the number of parameters
+#### yann LeCunn
+- Implement a paper you think is important and open source it or add it to a open source project
+- Contribute to open source projects that is how you will get noticed in this field.
