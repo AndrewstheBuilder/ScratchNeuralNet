@@ -164,3 +164,21 @@
 #### yann LeCunn
 - Implement a paper you think is important and open source it or add it to a open source project
 - Contribute to open source projects that is how you will get noticed in this field.
+
+#### Project 1 Implementing CNN from Scratch
+- Although programming frameworks make CNNs easy to use they are one of the hardest concepts to understand in Deep Learning. A convolution layer transforms an input volume into an output volume of different size. See below.
+- ![Alt text](image-6.png)
+- **Padding**
+- There are two main benefits
+- 1. It allows us to use the CONV layers without shrinking the height and width of the volumes. One important exception is the "same" convolutions in which the height/width is exactly preserved after one layer.
+- 2. Helps to keep more of the information at the border of the image. Without padding very few values in the next layer would be affected by the edges of the image.
+- **Matrix Mult with 3 dimensions**
+- When operating on two arrays, NumPy compares their shapes element-wise. It starts with the trailing (ie rightmost) dimension and works its way left. Two dimensions are compatible when:
+  - 1. They are equal or
+  - 2. one of them is 1
+- **Dot Product Rules for Matrix**
+- If the numbers on the inside are the same then they can be multiplied.
+  - For example 2 x **3** times **3** x 2.
+- In exercise 4 Pool Forward
+- a_prev_slice = A_prev[i][vert_start:vert_end, horiz_start:horiz_end, c]
+  - Why is there a c at the end of the dimension
