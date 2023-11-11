@@ -182,3 +182,16 @@
 - In exercise 4 Pool Forward
 - a_prev_slice = A_prev[i][vert_start:vert_end, horiz_start:horiz_end, c]
   - Why is there a c at the end of the dimension
+    - We are going channel by channel to get and store the results for max and average pooling. That's the way its designed. We update the output like:
+-                   if mode == "max":
+                        A[i, h, w, c] = np.max(a_prev_slice)
+                    elif mode == "average":
+                        A[i, h, w, c] = np.mean(a_prev_slice)
+### Backward Propagation for Convolutional Neural Networks
+- This is not trivial and it was not covered in the lectures because of how complicated it is.
+#### Convolutional Layer Backward Pass
+- Lot of things I do not understand. The last piece of code I wrote here makes little sense to me. Why are we indexing using the padding?
+  - What is da_prev_pad?
+-         # Set the ith training example's dA_prev to the unpadded da_prev_pad (Hint: use X[pad:-pad, pad:-pad, :])
+        dA_prev[i, :, :, :] = da_prev_pad[pad:-pad, pad:-pad, :]
+#### Pooling Layer - Backward Pass
