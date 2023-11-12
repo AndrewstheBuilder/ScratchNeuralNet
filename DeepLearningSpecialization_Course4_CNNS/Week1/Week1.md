@@ -195,3 +195,8 @@
 -         # Set the ith training example's dA_prev to the unpadded da_prev_pad (Hint: use X[pad:-pad, pad:-pad, :])
         dA_prev[i, :, :, :] = da_prev_pad[pad:-pad, pad:-pad, :]
 #### Pooling Layer - Backward Pass
+- We apply a mask to keep track of the maximum value for **Maximum Pooling**. This is because the maximum value is what contributes to the output and therefore the cost. Backprop is computing gradients with respect to the cost function. Anything that influences the cost should have a non-zero gradient.
+- **Average Pooling Backward Pass**
+- I really do not get how this is supposed to work. dz is the value we are distributing through a matrix of dimension shape.
+- so we take the average of the all of the spaces in the matrix because they contribute equally. And the math is like this for a 2 dimensional matrix
+  - dz / (height_matrix * width_matrix)

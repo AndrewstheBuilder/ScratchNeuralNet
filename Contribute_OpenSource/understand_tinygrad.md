@@ -1,0 +1,2 @@
+#### Quick Start Guide [https://github.com/tinygrad/tinygrad/blob/master/docs/quickstart.md]
+- We got the Tensor class with all the operations that can be done to a tensor like initializing it from a np.array or a python list [1,2,4,4]. **abstractions.py** will help me understand how the operations on these tensors make their way down to the hardware.
