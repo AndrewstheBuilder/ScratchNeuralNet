@@ -200,3 +200,7 @@
 - I really do not get how this is supposed to work. dz is the value we are distributing through a matrix of dimension shape.
 - so we take the average of the all of the spaces in the matrix because they contribute equally. And the math is like this for a 2 dimensional matrix
   - dz / (height_matrix * width_matrix)
+#### Exercise 8 (Pool_Backward)
+- Its wrong I think I am indexing into dA incorrectly. Its wrong for both "max" and "average".
+  - I think maybe its the vert_start, vert_end, horiz_start, horiz_end. These are not being used correctly. Because I do not think there is a sliding in pooling...
+  - I give up I literally cannot see anything wrong with this implementation! Maybe I can sit here and debug more but its a waste of my time I feel like.
