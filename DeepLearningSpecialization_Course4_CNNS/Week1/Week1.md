@@ -204,3 +204,12 @@
 - Its wrong I think I am indexing into dA incorrectly. Its wrong for both "max" and "average".
   - I think maybe its the vert_start, vert_end, horiz_start, horiz_end. These are not being used correctly. Because I do not think there is a sliding in pooling...
   - I give up I literally cannot see anything wrong with this implementation! Maybe I can sit here and debug more but its a waste of my time I feel like.
+#### Project 2
+- Recall: What is the difference between a multiclass and binary classification problem?
+  - Is multiclass where you use softmax and have multiple options and only one could be the right answer. Or is there multiple possible right answers?
+  - Binary classficiation is easy to understand its either a yes or no on a single output for an input. "Is this a cat?" - Yes or No.
+- I am struggling with the tensorflow api.
+- a fully-connected network is a neural network. And a ConvNet is a convolutional neural network.
+- TensorFlow:
+  - Sequential API vs Functional API
+- 
