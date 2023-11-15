@@ -9,3 +9,13 @@
   - I really need to write a book about starting things.
 - ![Alt text](image.png)
 - What this says is that this is a tensor backed by a Lazy Buffer(**LB**). Tensors are on the GPU by default!
+
+#### RISC vs CISC
+- Geohot said RISC will win out
+- CISC has complex instructions and RISC has simpler instructions
+  - The code size of CISC is smaller
+  - The code size of RISC is larger but it processes faster since it has simpler instructions.
+  - So there are more instructions to execute in RISC but its fewer clock cycles since the instructions are simpler.
+
+#### Abstraction.py
+- This is the entry point to figure out the abstractions in this code base
