@@ -53,10 +53,13 @@
 - ResNet aims to solve that problem.
 #### Residual block
 - WTF is this shit?
+- Residual blocks have mutliple residual skip connections
+- ![Alt text](image-5.png)
 - Supplemental Resource Notes below [https://towardsdatascience.com/residual-blocks-building-blocks-of-resnet-fd90ca15d6ec]:
 - In a traditional neural network each layer feeds onto the next layer.
 - In a network with residual blocks, each layer feeds into the next layer *and* directly into layers about 2-3 hops away.
-- ![Alt text](image-4.png)
+- With a resnet you can have the training error go down as the number of layers go up. I need to understand why this works.
+- ![Alt text](image-6.png)
   - Single Residual Block
 - Neural networks are **universal function approximators** and the accuracy increases with the number of layers. (I think I know what this is saying. Its trying to find a function that fits every problem and the number of layers is important because???)
 - there is a limit to the number of layers that can be added though because of the vanishing and exploding gradients problem and the curse of dimensionality (which was???)
@@ -66,5 +69,78 @@
     - So why not skip these extra layers and match the accuracy of the shallow sub-networks. But how?
     - We can learn the identity function by skipping layers that is why there is a identity on the *Single Residual Block* image
     - **Stopped at trying to understand the Residual Block**
+#### Why ResNets work?
+- ![Alt text](image-7.png)
+  - This explains where the ResNet will find the identity function. If W^[l+1] = 0 it just returns a^l
+  - You can have a weight in front of the a^[l] we are passing in the residual connection. This will be a matrix mult.
+- Very deep networks have struggles learning the identity function. Since ResNets help performance then that means that it should be able to not hurt performance.
+#### Networks in networks and 1x1 Convolutions
+#### What does a 1x1 convolution do?
+- ![Alt text](image-8.png)
+  - The top 1x1 convolution does nothing but the bottom one is good.
+  - The bottom thing is whats called a network in network convolution.
+#### Using 1x1 Convolutions
+- What if the number of channels has gotten too big and you want to shrink.
+- ![Alt text](image-9.png)
+- 1. Can help add or reduce the number of channels in a network
+- 2. Can be used to add a nonlinearity to the CNN
+### Inception Network Motivation
+- You can use whatever filter sizes, pooling layers, and just concatenate the outputs and have the network choose the ordering of it?
+#### The problem of computational cost
+- ![Alt text](image-10.png)
+  - Without 1x1 convolutions this will take a 120M multiplies.
+#### Using 1x1 convolution
+- ![Alt text](image-11.png)
+- This will only use a 12.4M multiplies.
+- Shrinking down the neural network does not seem to hurt the performance (the bottleneck layer)
+#### Inception Network
+#### Inception Module
+- ![Alt text](image-12.png)
+- So there is some side branchs
+- ![Alt text](image-13.png)
+  - The side branches are being used to make a prediction to make sure that the hidden layers are being trained reasonably.
+- Inception Networks are called GoogleNet to pay homage to the LeNet.
+- If you understand the inception module then you can understand the inception network. The inception network is basically the inception module repeated.
+### MobileNet
+- Some practical advice on buildng these kinds of neural networks
+#### Motivation for MobileNets
+- Low computation cost at deployment
+- This is useful for mobile phones.
+- Depth-wise separable convolutions are beneficial here.
+#### Normal Convolution
+![Alt text](image-14.png)
+#### Depthwise Separable Convolution
+- There is a 2 steps
+- 1. There is a depthwise convolution
+- 2. Then there is a pointwise convolution
+- ![Alt text](image-15.png)
+- Now lets flesh this out!
+#### Depthwise Convolution
+- ![Alt text](image-16.png)
+#### Pointwise Convolution
+- ![Alt text](image-17.png)
+#### Cost Analysis
+![Alt text](image-18.png)
+#### MobileNet Architecture
+- Everywhere you would have used a normal convolution you can now use a depthwise and pointwise convolution.
+- ![Alt text](image-19.png)
+- We renamed pointwise convolution to Projection for reasons that we will learn about soon.
+#### MobileNet v2 Bottleneck
+- ![Alt text](image-20.png)
+- We are projecting down from a nxnx18 to a nxnx3 therefore the pointwise convolution is called a projection.
+- The mobile bottle neck layer will be repeated 17 times
+#### EfficientNet
+- You want to adjust to different edge networks scaling up or down based on the amount of resources available to you.
+- ![Alt text](image-21.png)
+### Practival Advice for using ConvNets
+#### Using open-source implementations
+- A lot of these neural networks are difficult to replicate based on only reading the paper.
+- Look online for an open source implementation of the paper it can help speed up progress/
+  - This is probably what I would do first before trying to implement a paper from scratch.
+#### Transfer Learning
+- You can download weights that someone else has used on a architecture. They have probably trained with lots of resources and time to build this network. They have done the hyperparameter tuning already.
+- You can freeze to only train softmax layers weights but freeze the other layer's weights
+  - ![Alt text](image-22.png)
+- You can save to disk and then train a softmax classifier on top of that.
 ### Homework
 - Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
