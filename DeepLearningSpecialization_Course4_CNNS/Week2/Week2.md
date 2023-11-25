@@ -144,3 +144,4 @@
 - You can save to disk and then train a softmax classifier on top of that.
 ### Homework
 - Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
+- This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
