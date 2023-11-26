@@ -142,6 +142,35 @@
 - You can freeze to only train softmax layers weights but freeze the other layer's weights
   - ![Alt text](image-22.png)
 - You can save to disk and then train a softmax classifier on top of that.
+### Data Augmentation
+- You need more data
+#### Common  Augmentation Method
+- Mirroring
+- Random Cropping
+  - In practice it works well.
+#### Color Shifting
+- RGB
+- Sometimes called "PCA color" augmentation
+- This was talked about in the AlexNet Paper.
+#### Implementing Distortions During Training
+- You have a stream of images coming from the hard disk. You can use a CPU thread to do the distortion to the image. Then the image is passed to some other thread to do training.
+- Use someone else's open source implementation to get started for data augmentation. If there is some variation that hasn't been done before then you may need to tune these hyperparameters yourself.
+### State of Computer Vision
+#### Data vs. Hand-Engineering
+- <--- Little Data ------ Image Recognition --------- Lots of Data --->
+- ![Alt text](image-23.png)
+- We just don't have enough data for computer vision.
+- Transfer of Learning helps a lot when there is little data
+#### Tips for doing well on benchmarks/winning competitions
+- Ensembling
+  - Train serval networks independently and average their outputs.
+  - Not used in production but used mainly for benchmarks
+- Multi-crop at test time
+  - Same thing like ensembling. This is primarily used for benchmarks.
+#### Use open source code
+- Use architectures of networks published in the literature.
+- Use open source implementations if possible
+- Use pretrained models and fine tune them on your dataset.
 ### Homework
 - Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
 - This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
