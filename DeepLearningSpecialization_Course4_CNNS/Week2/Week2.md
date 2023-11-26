@@ -171,6 +171,10 @@
 - Use architectures of networks published in the literature.
 - Use open source implementations if possible
 - Use pretrained models and fine tune them on your dataset.
+### Quiz for this week
+- I got a 60% on the first quiz. And I had to use chat gpt for one of the questions on MobileV2. This sucks ;|
+1. What is the use of 1x1 layers?
+   -
 ### Homework
 - Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
 - This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
