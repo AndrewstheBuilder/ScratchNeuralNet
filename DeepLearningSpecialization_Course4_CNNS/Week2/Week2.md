@@ -190,4 +190,5 @@
     - In total its 600 + 270 + 150 = 1020 parameters
 ### Homework
 - Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
+- Read the other papers if you get a chance. Go to LeNet-5 next. Then go down in the order that we learned them.
 - This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
