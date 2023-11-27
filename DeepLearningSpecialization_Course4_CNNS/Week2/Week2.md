@@ -174,7 +174,20 @@
 ### Quiz for this week
 - I got a 60% on the first quiz. And I had to use chat gpt for one of the questions on MobileV2. This sucks ;|
 1. What is the use of 1x1 layers?
-   -
+   - A 1x1 layers makes a sum over the depth of the volume (how its two dimensional??? Depth is the third dimension)
+2. In order to be able to build very deep networks, we usually only use pooling layers to downsize the height/width of the activation volumes while convolutions are used with "valid" padding. Otherwise, we would downsize the input of the model too quickly.
+   - **True** is not the right answer. (Hint: Be carefultwith the definition of "valid" padding)
+3. Suppose that in a MobileNet v2 Bottleneck block we have an n x n x 5 input volume, we use 30 filters for the expansion, in the depthwise convolutions we use 3x3 filters, and 20 filters for the projection. How many parameters are used in the complete blockm suppose we don't use bias?
+    - I am not sure how to do the calculation for this. Here is what chat gpt did:
+    - ![Alt text](image-25.png)
+    - The ordering of the layers are 1. Expansion, 2. Depthwise, 3. Pointwise.
+    - Expansion Layer: The layer uses 1x1 convolutions to expand the input volume. In our case the input volume is n x n x 5 and we use 30 filters. So the number of parameters for this layer is 1 x 1 x 5 x 30 = 150 parameters
+    - Depthwise Convolution: Each filter gets applied to the input channel one at a time.
+      - ![Alt text](image-24.png)
+      - So it us 3x3x30 because the expanded layer has a depth of 30 and it gets applied to each channel separately.
+      - 3x3x30 = 270 parameters
+    - Projection layer: It convolves the input with a 1x1xdepth_of_input then the filter size is 20 filters for the projection so that adds the 20 to the end of this resulting in 1x1xdepth_of_inputx20 => 1x1x30x20 = 600
+    - In total its 600 + 270 + 150 = 1020 parameters
 ### Homework
 - Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
 - This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
