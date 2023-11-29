@@ -192,3 +192,18 @@
 - Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
 - Read the other papers if you get a chance. Go to LeNet-5 next. Then go down in the order that we learned them.
 - This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
+### Week 2 Project
+- Have ResNet blocks helps with the skip connections helps some blocks learn the identity function which means that its not possible for this to harm the training performance of the neural network.
+  - There is some evidence that the ease of learning the identity function accounts for more of the ResNet's remarkable performance even more so than the skip connections help solving the vanishing gradient problem.
+- Two main types of blocks are used with the ResNet depending on whether the input or output dimensions are different.
+    1. Identity Block
+    2. Convolutional Block.
+#### Identity Block
+- The identity block is the standard block in the ResNet and corresponds to the case when (a^[l]) the input activation has the same dimensions as the output activation (a^[l+1])
+- We are implementing a powerful version of this block that skips over 3 layers.
+- ![Alt text](image-26.png)
+- What is "valid" padding?
+  - Idk
+- What is "same" padding?
+  - Idk either
+#### Convolutional Block
