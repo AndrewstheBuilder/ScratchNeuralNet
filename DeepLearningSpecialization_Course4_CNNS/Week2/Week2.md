@@ -207,3 +207,11 @@
 - What is "same" padding?
   - Idk either
 #### Convolutional Block
+- This is the second block type used with ResNets. We use it when the input and output dimensions do not match up.
+- The difference with the identity block is that there is a CONV2D layer in the shortcut path.
+- ![Alt text](image-27.png)
+- the CONV2D layer in the shortcut path is used to resize the input x to a different dimension, so that the dimensions match up in the final addition needed to add the shortcut back to the main path. (This plays a similar role as the matrix W_s discussed in lecture)
+  - What the hell is W_s?
+- For example, to reduce the activation dimension's height and width by a factor of 2, you can use a 1x1 convolution with a stride of 2.
+#### Building Your First ResNet Model
+- This is where I stopped
