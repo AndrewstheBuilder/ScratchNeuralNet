@@ -203,9 +203,10 @@
 - We are implementing a powerful version of this block that skips over 3 layers.
 - ![Alt text](image-26.png)
 - What is "valid" padding?
-  - Idk
+  - n x n * f x f -> n - f + 1 x n - f + 1
+  - 6x6 * 3x3 -> 4x4
 - What is "same" padding?
-  - Idk either
+  - pad so output size is the same as the input size
 #### Convolutional Block
 - This is the second block type used with ResNets. We use it when the input and output dimensions do not match up.
 - The difference with the identity block is that there is a CONV2D layer in the shortcut path.
@@ -214,4 +215,5 @@
   - What the hell is W_s?
 - For example, to reduce the activation dimension's height and width by a factor of 2, you can use a 1x1 convolution with a stride of 2.
 #### Building Your First ResNet Model
-- This is where I stopped
+- ![Alt text](image-28.png)
+- I like this doing this project because getting dirty with the code helps me gain a feel for the architecture that I am working with and its not possible to make a lot of mistakes because most of the code is written for me.
