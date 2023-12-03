@@ -217,3 +217,29 @@
 #### Building Your First ResNet Model
 - ![Alt text](image-28.png)
 - I like this doing this project because getting dirty with the code helps me gain a feel for the architecture that I am working with and its not possible to make a lot of mistakes because most of the code is written for me.
+### Transfer Learning With MobileNet Project #2
+- What are bottleneck layers?
+- What are all these?
+  - Conv2D and DepthwiseConv2D
+  - Expansion
+  - Depthwise Convolution
+  - Projection
+- **What I should remember**:
+  - MobileNetV2's unique features are:
+    - Depthwise separable convolutions that provide lightweight feature filtering and creation
+    - Input and output bottlenecks that preserve important information on either end of the block
+  - Depthwise separable convolutions deal with both spatial and depth (number of channels) dimensions.
+- ![Alt text](image-29.png)
+  - We are going to delete from the top layer (classification layer) because this layer contains all of the classification labels and we are going to create a new classification layer.
+  - Because the base model has predicted our llama and not llamas so wrong
+  - ![Alt text](image-30.png)
+#### Fine Tuning
+- so since we are not getting exceptional results we are going to try to fine tune the model.
+- Unfreeze the last couple of layers and it should help you adapt to the higher level features of your data. Like pointy ears, fur etc. The intuition is that the low level features of the image should be the same across the board.
+- Where the final layers actually begin is kind of arbitrary.
+- **What I should remeber**:
+- To adapt the layer to new data I need to delete the "top" layer and add a new classification layer and train only on that layer.
+  - What is the "top" layer?
+  - ![Alt text](image-31.png)
+- When freezing layers avoid keeping track of statistics (like in the batch norm layer)
+- Fine-tune the final layers of your model to capture high-level details near the end of the network and potentially improve accuracy.
