@@ -55,3 +55,46 @@
 - b_x, b_y, b_h, b_w are specified relative to the grid cell
 - ![Alt text](image-8.png)
 - In the next few videos he will show ideas that can make this algorithm even better.
+- The YOLO paper is one of the harder papers to read. Even Andrew Ng had a hard time figuring out the details of this paper and had to ask fellow researcher friends
+### Intersection over Union
+#### Evaluating Object Localization
+- IOU computes the intersection over union of the the two bounded boxes. Size of the intersection/size of the union
+- ![Alt text](image-9.png)
+- the "correct" IOU is just the convention. There is no deep scientific reasoning for it.
+- Generally, IoU is a measure of the overlap of two bounding boxes.
+### Non-max Suppression
+- Makes sure that the algorithm detects the object only once.
+- Problem: ![Alt text](image-10.png)
+  - All of the boxes think they have correctly identified the image, but it has done the classification too many times. How would I fix this?
+  - ![Alt text](image-11.png)
+  - Highest probability is highlighted and the others are suppressed.\
+#### Non-max suppression algorithm
+- Its very specific you can review the slide to understand it. Nothing much to be learned here.
+- One last idea left to make the algorithm better
+### Anchor Boxes
+#### Overlapping objects
+- Midpoint of two images overlap in a grid.
+- How do you pick what image it is in that grid?
+- ![Alt text](image-12.png)
+#### Anchor box algorithm
+- Previously: Each object in training image is assigned to grid cell that contains that object's midpoint
+- With two anchor boxes:
+  - Each object in training image is assigned to grid cell that contains object's midpoint and anchor box for the grid cell with highest IoU.
+  - ![Alt text](image-13.png)
+- What if there is 2 anchor boxes but 3 objects overlapping in one cell. That is a case that this algorithm will not handle well.
+- The anchor box is chosen by people. Or you can use machine learnign to choose a anchor box that will generalize to the object that you are trying to detect.
+#### Putting it all together into the YOLO Algorithm
+- It just goes through an example of the algorithm running on a image.
+- After everything you output the non-max suppressed outputs.
+### Region Proposals (Optional)
+- Its optional because Andrew Ng uses this id less often
+#### Region proposal : R-CNN
+- Regions with CNN = R-CNN
+  - Select just a few windows and run your CNNs on it.
+  - A segmentation algorithm is run on the image to see where a image would be. The machine learning algorithm looks at blobs of images and some of them could be objects.
+#### Faster Algorithms (than R-CNN)
+- R-CNN is quite slow
+- R-CNN: Propose regions. Classify proposed regions one at a time. Output label + bounding box.
+- Fast R-CNN: Propose regions. Use convolutions implemention of sliding windows to classify all the proposed regions
+- Faster R-CNN: Use convolitional network to propose regions.
+- Andrew Ng's opinion: Not having two steps seems to be the more promising direction for Computer Vision.
