@@ -188,10 +188,6 @@
       - 3x3x30 = 270 parameters
     - Projection layer: It convolves the input with a 1x1xdepth_of_input then the filter size is 20 filters for the projection so that adds the 20 to the end of this resulting in 1x1xdepth_of_inputx20 => 1x1x30x20 = 600
     - In total its 600 + 270 + 150 = 1020 parameters
-### Homework
-- Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
-- Read the other papers if you get a chance. Go to LeNet-5 next. Then go down in the order that we learned them.
-- This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
 ### Week 2 Project
 - Have ResNet blocks helps with the skip connections helps some blocks learn the identity function which means that its not possible for this to harm the training performance of the neural network.
   - There is some evidence that the ease of learning the identity function accounts for more of the ResNet's remarkable performance even more so than the skip connections help solving the vanishing gradient problem.
@@ -243,3 +239,7 @@
   - ![Alt text](image-31.png)
 - When freezing layers avoid keeping track of statistics (like in the batch norm layer)
 - Fine-tune the final layers of your model to capture high-level details near the end of the network and potentially improve accuracy.
+### Homework
+- Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
+- Read the other papers if you get a chance. Go to LeNet-5 next. Then go down in the order that we learned them.
+- This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
