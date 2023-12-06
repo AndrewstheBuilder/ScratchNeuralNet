@@ -14,6 +14,9 @@
 - **Important**: Everytime the scanner goes to the next character there is a postfix ++ operator so its reading the character at the current value then incrementing the counter to the next.
   - So as we are scanning the current letter there is also a way to see the next letter without incrementing the counter.
   - current is the counter that keeps track of the current **unconsumed** character
+- Lox supports multiline strings. ![Alt text](image-1.png)
+- **Maximal Munch**: When two lexical grammer rules can both match a chunk of code that the scanner is looking at, *whichever one matches the most characters wins*
+  - Example reserved keyword **or** and variable name **orchid**
 ### Parsing (Expressions)
 - Converting the tokens from the scanning portion into a **syntax tree**
 ### Evaluating Code (Expressions)

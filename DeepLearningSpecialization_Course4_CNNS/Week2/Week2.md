@@ -240,6 +240,6 @@
 - When freezing layers avoid keeping track of statistics (like in the batch norm layer)
 - Fine-tune the final layers of your model to capture high-level details near the end of the network and potentially improve accuracy.
 ### Homework
-- Read the AlexNet paper [https://paperswithcode.com/method/alexnet]
+- ~~Read the AlexNet paper [https://paperswithcode.com/method/alexnet]~~
 - Read the other papers if you get a chance. Go to LeNet-5 next. Then go down in the order that we learned them.
 - This has been one of the most confusing weeks of this whole course. Hopefully everything is as simple as Andrew Ng has laid out in these videos and I just have to deepen my understanding of things by diving into these papers. Start with the paper he said is the easiest to get into and build momentum from there that is my strategy.
