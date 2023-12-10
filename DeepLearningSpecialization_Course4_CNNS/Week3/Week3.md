@@ -126,3 +126,5 @@
 1. Distinction between semantic segmentation and localization. **Localization** deals with where in the image is the object. **Semantic Segmentation** we need to classify each pixel from the image. So not a crazy distinction but its a distinction that the quiz makes.
 2. Recall that IoU is calculated as the quotient of the area of the intersection over the area of the union and that the area of the union is not the sum of the areas. If **union** is not the sum of the areas then what is it because it can not be the intersection.
   - **Union**: Oh I see. So the union is the area of the two boxes - the area of intersection. Since we only want to account for that area once.
+3. I said the output was (2N, 1) for a neural network that outputs N landmarks on the face. But we use column vectors and not row vectors for the output. So the answer would be (1, 2N). But why do we use column vectors and how did I miss this?
+4. To train a localization model we need the presence of bounding boxes in the training set.
