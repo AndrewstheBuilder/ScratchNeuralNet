@@ -127,4 +127,9 @@
 2. Recall that IoU is calculated as the quotient of the area of the intersection over the area of the union and that the area of the union is not the sum of the areas. If **union** is not the sum of the areas then what is it because it can not be the intersection.
   - **Union**: Oh I see. So the union is the area of the two boxes - the area of intersection. Since we only want to account for that area once.
 3. I said the output was (2N, 1) for a neural network that outputs N landmarks on the face. But we use column vectors and not row vectors for the output. So the answer would be (1, 2N). But why do we use column vectors and how did I miss this?
-4. To train a localization model we need the presence of bounding boxes in the training set.
+4. To train a localization model we **need** the presence of bounding boxes **in the training set**.
+### Project YOLO Algorithm: Autonomous Driving Application Car Detection
+- If there are 80 classes you want the object detector to recognize, you can represent the class label *c* as an integer from 1 to 80, or as an 80-dimensional vector(with 80 numbers).
+  - I thought the 1-80 representation was bad because of the curse of dimensionality problem. In this project we are going to be using both representations **depending on which is more convenient for a particular step**
+  - ^ I think I am starting to understand the fundamentals of how machine learning is practiced as of today.
+- The YOLO model is very computationally expensive to train so we are provided with the pretrained weights.
