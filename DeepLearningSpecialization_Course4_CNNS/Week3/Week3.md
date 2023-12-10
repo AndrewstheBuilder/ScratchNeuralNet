@@ -98,3 +98,27 @@
 - Fast R-CNN: Propose regions. Use convolutions implemention of sliding windows to classify all the proposed regions
 - Faster R-CNN: Use convolitional network to propose regions.
 - Andrew Ng's opinion: Not having two steps seems to be the more promising direction for Computer Vision.
+### Semantic Segmentation with U-Net
+#### Object Detection vs. Semantic Segmentation
+- ![Alt text](image-14.png)
+  - "Is this road a drivable surface?" represented in the green area
+#### Motivation for U-Net
+- ![Alt text](image-15.png)
+  - Tumor detection
+  - X ray determination
+#### Per-pixel class labels
+- You can have 1 for each pixel in the one class and 2 for each pixel in the 2 class.
+- ![Alt text](image-16.png)
+#### Deep learning for Semantic Segmentation
+- ![Alt text](image-17.png)
+  - Transpose convolution is what is used to make this image bigger
+### Transpose Convolution
+- ![Alt text](image-18.png)
+- This is how the 2x2 matrix gets expanded to a 4x4
+### U-Net Architecture Intuition
+- ![Alt text](image-19.png)
+  - The skip connection is there because it needs the contextual information of where the cat could be (circled in red) and the detailed spacial dimensions which comes from the beginning. At the beginning its higher resolution the height and width is larger.
+### U-Net Architecture
+- ![Alt text](image-20.png)
+- ![Alt text](image-21.png)
+  - For every one of the hxw pixels how likely is it to be one of the n_classes
