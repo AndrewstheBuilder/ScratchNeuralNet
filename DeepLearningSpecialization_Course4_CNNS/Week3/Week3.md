@@ -121,4 +121,4 @@
 ### U-Net Architecture
 - ![Alt text](image-20.png)
 - ![Alt text](image-21.png)
-  - For every one of the hxw pixels how likely is it to be one of the n_classes
+  - For every one of the **h X w** pixels how likely is it to be one of the n_classes
