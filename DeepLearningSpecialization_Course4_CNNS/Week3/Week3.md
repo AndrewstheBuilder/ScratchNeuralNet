@@ -133,3 +133,12 @@
   - I thought the 1-80 representation was bad because of the curse of dimensionality problem. In this project we are going to be using both representations **depending on which is more convenient for a particular step**
   - ^ I think I am starting to understand the fundamentals of how machine learning is practiced as of today.
 - The YOLO model is very computationally expensive to train so we are provided with the pretrained weights.
+- **What I should Remember from the YOLO project**:
+  - YOLO is a state-of-the-art object detection model that is fast and accurate (for its time I bet there are faster and more accurate models out now)
+  - It runs an input image through a CNN, which outputs a 19x19x5x85 dimensional volume.
+  - The encoding can be seen as a grid where each of the 19x19 cells contains information about 5 boxes.
+  - You filter through all the boxes using non-max suppression. Specifically:
+    - Score thresholding on the probability on the probability of detecting a class to keep only accurate (high probability) boxes.
+    - Intersection over Union (IoU) thresholding to eliminate overlapping boxes
+  - Because training a YOLO model from randomly initialized weights is non-trivial and requires a large dataset as well as a lot of computation. They provided the trained model parameters for us.
+  - I can try to fine tune the model on my own dataset but it would be a non-trivial exercise.
