@@ -142,3 +142,11 @@
     - Intersection over Union (IoU) thresholding to eliminate overlapping boxes
   - Because training a YOLO model from randomly initialized weights is non-trivial and requires a large dataset as well as a lot of computation. They provided the trained model parameters for us.
   - I can try to fine tune the model on my own dataset but it would be a non-trivial exercise.
+#### Project U-Net
+- A U-Net is a type of CNN designed for quick, precise image segmentation and using it to predict a label for every single pixel in an image.
+- Pixel Perfect labeling is pretty crucial for self driving cars which requires pixel-perfect understanding of their environment so they can change lanes and avoid other cars.
+- Objectives:
+  - Build the U-Net
+  - Explain the difference between a regular CNN and a U-Net
+  - Implement semantic image segmentation on the CARLA self-driving car dataset.
+  - Apply sparse categorical crossentropy for pixelwise prediction.
