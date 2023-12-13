@@ -11,3 +11,18 @@
 - General novel artistic images using Neural Style Transfer.
 - Define the style cost function for Neural Style Transfer.
 - Define the content cost function for Neural Style Transfer
+### What is facial recognition?
+- Face verification vs face recognition
+  - recognition is much harder than verification.
+- **Face Verification**: input image, name/ID.
+  - Output whether the input image is that of the claimed person
+- **Recognition**: has a database of K persons, get an input image, output ID if the image is any of the K persons (or "not recognized")
+- Recognition is harder because there are K-1 chances of getting it wrong.
+### One Shot Learning
+- Learning from one example to recognize the person again.
+- A small training is not good. What if a new person joins your team? You will have to retrain the neural network?
+#### Learning a "similarity" functon
+- d(img1, img2) = degree of difference between images
+- If d(img1, img2) <= tao "same"
+    else > tao "different"
+- Learning this function d allows us to solve the one shot learning problem.
