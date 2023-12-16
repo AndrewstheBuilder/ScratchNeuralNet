@@ -22,3 +22,13 @@
 ### Evaluating Code (Expressions)
 - We are going to **execute** the syntax tree itself.
 - Language implementations can make a computer do what the source code commands by compiling it to machine code, transpiling it by converting it to another high-level language, or reduce it some bytecode format for a virtual machine to run.
+### Representing Code
+#### Context Free Grammer
+- We used regular expressions to identify the lexemes in the last chapter. Now we have to use context free grammer to handle expressions which can be nested arbitrarily deep.
+- How can we define a grammer with infinite variations we define a finite set of rules.
+#### Rules for Grammer
+- The language that you produce from the rules of the grammer are called derivations.
+- Rules are called productions because they produce the things you see in the grammer.
+- **Terminal**: Are the literals from the language. For example for us it would be like *if* or *1234*
+- **Non-Terminal**: is a named reference to another rule in the grammer.
+- All language rules are basically derivations of the BNF form from the 20th century. Not much innovation has happened in this area since then.
