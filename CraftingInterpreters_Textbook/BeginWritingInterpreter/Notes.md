@@ -62,3 +62,6 @@
 #### Recursion and Abstract Syntax Trees
 - Here is a reference for recursion with a stack. ![Alt text](<1 zhWjVsmIRrBoGClOINSIPQ-2635589653.jpeg>)
 - In order printing of a Binary Search Tree. ![Alt text](Qi3Nd-3170280108.gif)
+#### Working with Trees (Why the code is designed the way it is)
+- We can do a long chain of type tests for our expressions but then the expressions that are towards the end of the chain will take longer to execute ![Alt text](image-9.png)
+- We have a family of subclasses in Expr and we need to associate behavior to them. We can give those subclasses instance methods but since they will have to be extended from in multiple domains then it will violate separation of concerns and lead to hard-to-maintain code.
