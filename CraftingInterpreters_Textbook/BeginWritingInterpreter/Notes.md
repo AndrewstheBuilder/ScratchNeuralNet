@@ -65,3 +65,12 @@
 #### Working with Trees (Why the code is designed the way it is)
 - We can do a long chain of type tests for our expressions but then the expressions that are towards the end of the chain will take longer to execute ![Alt text](image-9.png)
 - We have a family of subclasses in Expr and we need to associate behavior to them. We can give those subclasses instance methods but since they will have to be extended from in multiple domains then it will violate separation of concerns and lead to hard-to-maintain code.
+#### Object Oriented vs. Functional Programming Paradigm
+- Object Orientation ![Alt text](image-10.png)
+- Functional Paradigm![Alt text](image-11.png)
+- In functional paradigm the behavior is defined separately from the type by functions. In Object Oriented programming we couple the object and the behavior together. Object oriented programming is oriented towards the object. Functional Programming is oriented towards the functions.
+- Problems we face with building *expression syntax trees* with both programming paradigms
+  - In object oriented programming its difficult to share types across domains. Because every domain will have to implement every function in the type even if its not related to their domain.
+  - In functional programming if you add something to a type then you will have to go and add a pattern matcher for that type into the "behavior" functions
+  - They call these two problems the **expression problem**
+#### The Visitor Pattern (the solution to the expression problem)
