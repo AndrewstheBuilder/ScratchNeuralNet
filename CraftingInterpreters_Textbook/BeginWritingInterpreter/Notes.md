@@ -59,3 +59,6 @@
   - Token class ![Alt text](image-7.png)
     - And its uses for Comparison ![Alt text](image-8.png)
   - It feels weird to separate the behavior from where the data resides in Java because its an object oriented programming language. But the data structures are needed to flow between different phases/parts of the interpreter.
+#### Recursion and Abstract Syntax Trees
+- Here is a reference for recursion with a stack. ![Alt text](<1 zhWjVsmIRrBoGClOINSIPQ-2635589653.jpeg>)
+- In order printing of a Binary Search Tree. ![Alt text](Qi3Nd-3170280108.gif)
