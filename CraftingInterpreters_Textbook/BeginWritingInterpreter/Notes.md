@@ -74,3 +74,4 @@
   - In functional programming if you add something to a type then you will have to go and add a pattern matcher for that type into the "behavior" functions
   - They call these two problems the **expression problem**
 #### The Visitor Pattern (the solution to the expression problem)
+- TODO: Understand the expression problem before moving on to the Visitor Problem.
