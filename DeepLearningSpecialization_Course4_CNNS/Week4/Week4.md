@@ -74,6 +74,10 @@
 - Say you are using layer l's activation to measure "style" Define style as correlation between activations across channels.
   - How correlated are the activations across different channels?
   - ^Why does this capture style?
+- The style is the correlation between the activations across channels.
+- How correlated are the activations across different channels?
+  - Look across the same positions across different channels.
+  - **Intuition** this answers how often a feature like stripes and the color yellow occur together.
 #### Intuition about style of an image
 - So we are comparing the correlation between the layers of a image and then comparing across to different images and looking at their activations' correlations as well?
   - Then we compare the two correlations?
@@ -81,5 +85,6 @@
 - ![Alt text](image-6.png)
 #### Style cost function
 - ![Alt text](image-7.png)
-- TODO rewatch this Style Cost Function section. What does this say about the properties of "style" of an image?
-
+### 1D And 3D Generalizations
+- Conv nets can be used in 1D data. It can change the output size as it would for 2D data. ![Alt text](image-8.png)
+- The 16 here comes from the 16 filters. This number will be given if I am ever asked a question about this. ![Alt text](image-9.png)
