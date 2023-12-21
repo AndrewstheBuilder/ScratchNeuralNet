@@ -88,3 +88,19 @@
 ### 1D And 3D Generalizations
 - Conv nets can be used in 1D data. It can change the output size as it would for 2D data. ![Alt text](image-8.png)
 - The 16 here comes from the 16 filters. This number will be given if I am ever asked a question about this. ![Alt text](image-9.png)
+#### Quiz
+- In neural style transfer, we train the pixels of an image, and not the parameters of a network.
+  - True because neural style transfer compares the high-level features of two images and modifies the pixels of one of them in order to look artistic.
+- One-shot learning refers to the amount of data we have to solve a task, not the number of forward passes.
+#### Project 1 for Week 4 - Face Recognition
+- Face verification: "Is this the claimed person?" For example, at some airports, you can pass through customs by letting a system scan your passport and then verifying that you (the person carrying the passport) are the correct person. An iphone that unlocks when it sees your face is also face verification
+- Face recognition: Your face is compared against a data base of faces to see if you match any of the faces in the database.
+- **Channels last notation**: the channels are the last dimension.
+- **Naive Face Verification**: compare two image pixel-by-pixel if the distance between the raw images is below a certain threshold, it may be the same person. This algorithm performs poorly since the pixel values change dramatically due to variations in lighting, orientation of the person's face, minor changes in head position, and so on.
+- Instead of using the raw image, you can learn an encoding *f(img)*
+- By using an encoding for each image, an element wise comparison produces a more accurate judgement as to whether two pictures are of the same person. ![Alt text](image-10.png)
+- Triplet Loss Function Intuition: ![Alt text](image-11.png)
+  - Its squared so that it takes the difference without respect to if a term makes the difference positive or negative
+  - You want to make the first term be small and the second term be large.
+  - The negative sign is in front of the second term because?
+    - "Minimizing the negative of the term is the same as maximizing it" This still does not make sense to me.
