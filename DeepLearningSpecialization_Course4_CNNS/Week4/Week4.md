@@ -103,4 +103,30 @@
   - Its squared so that it takes the difference without respect to if a term makes the difference positive or negative
   - You want to make the first term be small and the second term be large.
   - The negative sign is in front of the second term because?
-    - "Minimizing the negative of the term is the same as maximizing it" This still does not make sense to me.
+    - "Minimizing the negative of the term is the same as maximizing that term" This still does not make sense to me.
+    - It makes sense because we are minimizing the overall triplet cost with the two terms. And minimizing the negative means that its positive and we do want that second term to be large. So it makes sense. ![Alt text](image-12.png)
+  - **What I should remember**:
+    - Face verification solves an easier 1:1 matching problem. Face recognition addresses a 1:K matching problem.
+    - **Triplet loss** is an effective loss function for training a neural network to learn an encoding of a face image.
+    - The same encoding can be used for verification and recognition. Measuring distances between two images' encodings allows you to determine whether they are pictures of the same person.
+  - **Ways to improve this result**:
+    - Crop the images to contain just the face and less of the "border" region around the face. This preprocessing removes some of the irrelevant pixels around the face and also makes the algorithm more robust.
+#### Project 2 - Deep Learning & Art: Neural Style Transfer
+- Most of the algorithms I have studied optimize a cost function to get a set of parameter values neural style transfer will optimize a cost function to get a set of pixel values.
+- The **shallower layers** of a ConvNet tend to detect lower-level features such as *edges* and *simple textures*.
+- The **deep layers** of a ConvNet tend to detect higher-level features such as more *complex features* and *object classes*
+- Choose a "middle" activation layer will get the best results because in practice it will most likely have those low level and high level features.
+- The **Content Cost Function** basically looks at the activations in a layer.
+- **What I should remember from this section**:
+  - The content cost function takes a hidden layer activation of the neural network, and measures how different a^c and a^g are.
+  - When I minimize the content cost function I am making sure that images C and G are similar.
+- The **Style Cost Function** is represented by the correlation of gram matrices of the images C and G. Gram matrix also known as a style matrix is a concept from Linear Algebra ![Alt text](image-13.png)
+- When we compute the style cost across layers (because unlike the content cost its better to merge the costs across layers for the style cost) we add coefficients to the layers.
+  - The deeper layers capture higher-level concepts, and the features in the deeper layers are less *localized* relative to each other. (*localized*: to attribute to a particular locality. "sought to localize the origin of the rumor") If you want the generated image to softly follow the style image try choosing larger weights for deeper layers and smaller weights for the first layers.
+- Neural Style Transfer is the first time in this course where we built a model in which the optimization algorithm updates the pixel values rather than the neural network's parameters.
+- **What I should remember**:
+  - Neural Style Transfer is an algorithm that given a content image C and a style image S can generate an artistic image.
+  - It uses representations based on hidden layer activations of a pretrained ConvNet.
+  - The content cost function is computed using one hidden layer's activations.
+  - The style cost function for one layer is computed using the Gram matrix of that layer's activations. The overall style cost function is obtained using several hidden layers.
+  - Optimizing the total cost function results in synthesizing new images
