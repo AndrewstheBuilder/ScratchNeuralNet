@@ -74,4 +74,5 @@
   - In functional programming if you add something to a type then you will have to go and add a pattern matcher for that type into the "behavior" functions
   - They call these two problems the **expression problem**
 #### The Visitor Pattern (the solution to the expression problem)
-- TODO: Understand the expression problem before moving on to the Visitor Problem.
+- The vistor pattern is not about traversing syntax trees!
+- The visitor pattern is really about approximating the functional style within OOP langauge. It lets add new columns to that table easily. the implementation looks complex but what its trying to achieve is very simple.
