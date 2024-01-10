@@ -67,7 +67,7 @@
 - We have a family of subclasses in Expr and we need to associate behavior to them. We can give those subclasses instance methods but since they will have to be extended from in multiple domains then it will violate separation of concerns and lead to hard-to-maintain code.
 #### Object Oriented vs. Functional Programming Paradigm
 - Object Orientation ![Alt text](image-10.png)
-- Functional Paradigm![Alt text](image-11.png)
+- Functional Paradigm ![Alt text](image-11.png)
 - In functional paradigm the behavior is defined separately from the type by functions. In Object Oriented programming we couple the object and the behavior together. Object oriented programming is oriented towards the object. Functional Programming is oriented towards the functions.
 - Problems we face with building *expression syntax trees* with both programming paradigms
   - In object oriented programming its difficult to share types across domains. Because every domain will have to implement every function in the type even if its not related to their domain.
@@ -76,3 +76,8 @@
 #### The Visitor Pattern (the solution to the expression problem)
 - The vistor pattern is not about traversing syntax trees!
 - The visitor pattern is really about approximating the functional style within OOP langauge. It lets add new columns to that table easily. the implementation looks complex but what its trying to achieve is very simple.
+- Recap of Visitor Pattern 3 days later what exactly is it? So its approximating functional style within a OOP language like Java. How is it doing that?
+  - You have an abstract class and child classes that extend from the abstract class.
+  - Then you a "visitor" interface with methods for each of those child classes to "visitChild1", "visitChild2"
+    - Then the abstract class has an abstract method **accept** which is implemented by the child classes. In the parameter of the abstract accept(VisitorInterface visitor). In the child classes it calls the appropriate visitChild1, visitChild2 method.
+- So its approximating the functional style by using an interface. I bet the abstract piece is important also. But I am drawn to whatever the interface is doing as representing the functional side.
