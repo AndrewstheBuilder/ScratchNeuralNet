@@ -73,7 +73,7 @@
   - In object oriented programming its difficult to share types across domains. Because every domain will have to implement every function in the type even if its not related to their domain.
   - In functional programming if you add something to a type then you will have to go and add a pattern matcher for that type into the "behavior" functions
   - They call these two problems the **expression problem**
-#### The Visitor Pattern (the solution to the expression problem)
+#### Chapter 5: The Visitor Pattern (the solution to the expression problem)
 - The vistor pattern is not about traversing syntax trees!
 - The visitor pattern is really about approximating the functional style within OOP langauge. It lets add new columns to that table easily. the implementation looks complex but what its trying to achieve is very simple.
 - Recap of Visitor Pattern 3 days later what exactly is it? So its approximating functional style within a OOP language like Java. How is it doing that?
@@ -81,3 +81,18 @@
   - Then you a "visitor" interface with methods for each of those child classes to "visitChild1", "visitChild2"
     - Then the abstract class has an abstract method **accept** which is implemented by the child classes. In the parameter of the abstract accept(VisitorInterface visitor). In the child classes it calls the appropriate visitChild1, visitChild2 method.
 - So its approximating the functional style by using an interface. I bet the abstract piece is important also. But I am drawn to whatever the interface is doing as representing the functional side.
+#### Chapter 6: Parsing Expressions
+- Parsing is transmogrifying a sequence of tokens into a syntax tree.
+- When we are parsing we are tracking which rules lead to which tokens so we know what part of the language the tokens belong to. So understanding what rules produce what type of tokens is important.
+- the rules are ambigious
+  - which leads to the fact that they produce the same strings but not the same syntax trees.
+  - We use two concepts to solve this problem of ambiguity: 1. Precedence, 2. Associativity
+- **Precendence**: determines which operator is evaluated first in an expression containing a mixture of different operators.
+- **Associativity**: determines which operator is evaluated first in a serios of the same operator. When an operator is left-associative (think "left to right") operators on the left evaluate before those on the right.
+- ![Alt text](image-12.png)
+#### Recursive Descent Parsing Chapter 6.2
+- There are a lot of parsing techniques but the simplest one that will just require handwritten code is called **recursive descent**
+  - You do not need to use a complex parser generator tool like Yacc, Bison, or ANTLR. All you need is straight up handwritten code.
+- Recursive descent parsers are fast, robust, and can support sophisticated error handling.
+- Recursive descent is considered a **top-down parser** because it starts from the top of outermost grammar rule (here *expression*) and works its way down into the nested subexpressions before finally reaching the leaves of the syntax tree.
+- The descent is described as "recursive" because when a grammar rule refers to itself - directly or indirectly - that translates to a recursive function call.
