@@ -96,3 +96,4 @@
 - Recursive descent parsers are fast, robust, and can support sophisticated error handling.
 - Recursive descent is considered a **top-down parser** because it starts from the top of outermost grammar rule (here *expression*) and works its way down into the nested subexpressions before finally reaching the leaves of the syntax tree.
 - The descent is described as "recursive" because when a grammar rule refers to itself - directly or indirectly - that translates to a recursive function call.
+#### Stopped at 6.3
